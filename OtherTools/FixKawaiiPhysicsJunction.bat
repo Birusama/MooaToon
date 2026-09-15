@@ -1,14 +1,10 @@
 @echo off
 setlocal
 
-if "%~1"=="" (
-    echo Usage: %~nx0 "C:\path\to\KawaiiPhysics_MooaToon"
-    echo Exit code: 2
-    pause
-    exit /b 2
-)
+rem Change this path if the KawaiiPhysics source repository is moved.
+set "KAWAII_PHYSICS_SOURCE_PATH=C:\Users\jason\Workspace\KawaiiPhysics_MooaToon"
 
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0FixKawaiiPhysicsJunction.ps1" -KawaiiPhysicsSourcePath "%~1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0FixKawaiiPhysicsJunction.ps1" -KawaiiPhysicsSourcePath "%KAWAII_PHYSICS_SOURCE_PATH%"
 set "exitCode=%errorlevel%"
 echo.
 echo Exit code: %exitCode%
